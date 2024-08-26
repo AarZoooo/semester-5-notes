@@ -54,9 +54,11 @@ Here, as the input itself is constant, there is no variable space in this algori
 And it is constant every time we run this algorithm.
 
 Thus Space complexity becomes:
+
 $$
 S(P) = S(12) = 1
 $$
+
 As this space complexity is constant, we can also denote the upper bound (Big-O) with it as $O(1)$.
 
 **Example 2:**
@@ -82,9 +84,11 @@ Here:
 Therefore:
 - $C = S(12) = 1$
 - $S(I) = n$
+
 $$
 S(P) = 1 + n \approx n
 $$
+
 As 1 is significantly smaller than n, we ignore it in complexities.
 We can denote its upper bound as $O(n)$
 
@@ -140,9 +144,11 @@ Now the cases in which an algorithm's performance falls under are **Best Case**,
 Used to express the *upper bound* of an algorithm. In other words, it expresses the longest amount of time the algorithm can possibly take.
 
 It is expressed as:
+
 $$
 f(n) \leq c \times g(n)
 $$
+
 where:
 - $n$ is input size
 - $f(n)$ is actual time complexity of the algorithm
@@ -160,6 +166,7 @@ Let's take:
 - $c = 6$
 
 Therefore we get:
+
 $$
 f(n) \leq 6 \times n^2
 $$
@@ -175,9 +182,11 @@ Therefore we can say: $f(n)$ is $O(n^2)$.
 Used to express the *lower bound* of an algorithm. In other words, it expresses the least amount of time the algorithm can possibly take.
 
 It is expressed as:
+
 $$
 c \times g(n) \leq f(n)
 $$
+
 where:
 - $n$ is input size
 - $f(n)$ is actual time complexity of the algorithm
@@ -195,9 +204,11 @@ Let's take:
 - $c = 3$
 
 Therefore we get:
+
 $$
 3 \times n^2 \leq f(n)
 $$
+
 where:
 - $n_0 = 1$
 
@@ -212,6 +223,7 @@ Therefore we can say: $f(n)$ is $\Omega(n^2)$.
 It is a way to express kind-of the middle bound, or the average of the runtime of an algorithm.
 
 It is expressed as:
+
 $$
 c_1 \times g(n_1) \leq f(n) \leq c_2 \times g(n_2)
 $$
@@ -231,13 +243,76 @@ Let's take:
 - $c_2 = 6$ and $g(n_2) = n^2$
 
 Therefore we get:
+
 $$
 3 \times n^2 \leq f(n) \leq 6 \times n^2
 $$
+
 where:
 - $n_0 = 1$
 
 So for every $n \geq 1$, this equation holds.
 
 Therefore we can say: $f(n)$ is $\Theta(n^2)$.
+
+# Recurrence Relation
+
+An equation or inequality, that describes its value in smaller chunks of itself, with some initial conditions. We can understand it better with an *Example:*
+
+Let's take the example of **Fibonacci sequence**. Remember the sequence where a value is the sum of the two immediate previous elements?
+
+So we know, Fibonacci sequence starts with 0 and 1. So:
+- $n_0 = 0$
+- $n_1 = 1$
+
+Now, if an element is said to be $F(n)$, then:
+
+$$
+F(n) = F(n - 1) + F(n - 2)
+$$
+
+where $F(0) = 0, F(1) = 1$
+
+So we can see, this relation describes its value in smaller parts, or we can say previous values for this example.
+
+## Recurrence Relations in Algorithms
+
+When it comes to Asymptotic analysis of *Recursive algorithms*, our simple step-counting methods fail. Moreover, that method had varying values of constants and threshold input spaces, and we needed a more definitive approach. 
+
+When we use recurrence relations to analyse recursive algorithms, we can get definite results.
+
+There are four methods of solving Recurrence Relations:
+- Substitution Method
+- Iteration Method
+- Recursion Tree Method
+- Master Method
+
+Let's look into each of them.
+
+### Substitution Method
+
+This is a straightforward and brute-force method of solving recurrences.
+
+- Guess the solution
+- Use mathematical Induction to find boundary condition, and show the guess is correct
+
+**Example:**
+Let's solve the recurrence relation $T(n) = 2 T(\frac{n}{2})$
+
+1. Let our guess be $T(n) = O(n \space log(n))$
+2. Prove by Induction:
+	- For small $n$, e.g. $n = 1$, $T(1) = c$, where $c$ is constant.
+
+
+A Recurrence Relation in terms of a Recursive algorithm is defined as:
+
+$$
+T(n) = D(n) + C(n) + a \times T(\frac{n}{b})
+$$
+
+where:
+- $D(n)$ is the time complexity to divide the search space
+- $C(n)$ is the time complexity to combine the search spaces
+- $a$ is the number of parts in which the search space is divided
+- $b$ provides how much each part is, after division.
 
