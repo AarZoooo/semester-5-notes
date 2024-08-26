@@ -148,7 +148,7 @@ where:
 - $f(n)$ is actual time complexity of the algorithm
 - $g(n)$ is a known complexity, with which we are comparing $f(n)$
 - $c$ is a constant
-- $n > n_0$, where $n_0$ is a certain amount of input (threshold)
+- $n \geq n_0$, where $n_0$ is a certain amount of input (threshold)
 
 So basically the $n$ we take is the upper bound complexity, which is always greater than $f(n)$.
 
@@ -157,12 +157,18 @@ Consider the function $f(n) = 3n^2 + 2n + 1$
 
 Let's take:
 - $g(n) = n^2$
-- $c = 4$
+- $c = 6$
 
 Therefore we get:
 $$
-
+f(n) \leq 6 \times n^2
 $$
+where:
+- $n_0 = 1$
+
+So for every $n \geq 1$, this equation holds.
+
+Therefore we can say: $f(n)$ is $O(n^2)$.
 
 ### Big Omega Notation: $\Omega$
 
@@ -177,11 +183,29 @@ where:
 - $f(n)$ is actual time complexity of the algorithm
 - $g(n)$ is a known complexity, with which we are comparing $f(n)$
 - $c$ is a constant
-- $n > n_0$, where $n_0$ is a certain amount of input (threshold)
+- $n \geq n_0$, where $n_0$ is a certain amount of input (threshold)
 
 So basically the $n$ we take is the lower bound complexity, which is always less than $f(n)$.
 
 **Example:**
+Consider the same function $f(n) = 3n^2 + 2n + 1$
+
+Let's take:
+- $g(n) = n^2$
+- $c = 3$
+
+Therefore we get:
+$$
+3 \times n^2 \leq f(n)
+$$
+where:
+- $n_0 = 1$
+
+So for every $n \geq 1$, this equation holds.
+
+Therefore we can say: $f(n)$ is $\Omega(n^2)$.
+
+> **Note**: We could have also taken $g(n) = n$, as $n$ is always less than $n^2$. But we are supposed to take the tight bounds for asymptotic notations. As we get a tighter bound with $n^2$, we go with it.
 
 ### Big Theta Notation: $\Theta$
 
@@ -197,5 +221,23 @@ where:
 - $f(n)$ is actual time complexity of the algorithm
 - $g(n_1)$ and $g(n_2)$ are known complexities, with which we are comparing $f(n)$
 - $c_1$ and $c_2$ are constants
-- $n > n_0$, where $n_0$ is a certain amount of input (threshold)
+- $n \geq n_0$, where $n_0$ is a certain amount of input (threshold)
+
+**Example:**
+Consider the same function $f(n) = 3n^2 + 2n + 1$
+
+Let's take:
+- $c_1 = 3$ and $g(n_1) = n^2$
+- $c_2 = 6$ and $g(n_2) = n^2$
+
+Therefore we get:
+$$
+3 \times n^2 \leq f(n) \leq 6 \times n^2
+$$
+where:
+- $n_0 = 1$
+
+So for every $n \geq 1$, this equation holds.
+
+Therefore we can say: $f(n)$ is $\Theta(n^2)$.
 
