@@ -291,17 +291,70 @@ Let's look into each of them.
 
 ### Substitution Method
 
-This is a straightforward and brute-force method of solving recurrences.
+This is a straightforward method of solving recurrences.
 
 - Guess the solution
-- Use mathematical Induction to find boundary condition, and show the guess is correct
+- Use mathematical Induction to show the guess is correct.
 
-**Example:**
-Let's solve the recurrence relation $T(n) = 2 T(\frac{n}{2})$
+**Example:** 
+Let's solve the recurrence relation $T(n) = T(n - 1) + n$, $n > 1$
 
-1. Let our guess be $T(n) = O(n \space log(n))$
-2. Prove by Induction:
-	- For small $n$, e.g. $n = 1$, $T(1) = c$, where $c$ is constant.
+So, we have $T(n) = 1$ when $n = 1$.
+
+So for the next terms:
+- $T(1) = 1$
+- $T(2) = T(1) + 2 = 1 + 2 = 3$
+- $T(3) = T(2) + 3 = T(1) + 2 + 3 = 1 + 2 + 3 = 6$
+- $T(4) = 1 + 2 + 3 + 4 = 10$
+
+So the pattern is the sum of n natural numbers: $\frac{(n \times (n + 1))}{2}$. Hence the time complexity is $O(n^2)$.
+
+Now let's prove the guess is correct using Mathematical Induction:
+
+- For $T(1)$: $\frac{1 \times (1 + 1)}{2} = 1$; which matches the definition of recurrence $T(1) = 1$
+
+- Let's assume $T(N - 1)$ is true.
+  Then $T(N - 1) = \frac{((N - 1) \times (N - 1 + 1))}{2}$ is true.
+  => $T(N - 1) = \frac{N \times (N - 1)}{2}$
+
+- Then for $T(N):$
+  $T(N) = T(N - 1) + N$
+  $T(N) = \frac{N \times (N - 1)}{2} + N$
+  $T(N) = \frac{N^2 - N + 2N}{2}$
+  $T(N) = \frac{N \times (N + 1)}{2}$
+
+  And according to our guess: $T(N) = \frac{N \times (N + 1)}{2}$
+
+Therefore we can conclude that our guess was correct, and we proved it using Mathematical Induction.
+
+### Iterative Method
+
+This method unfolds the recurrence relation step-by-step.
+
+**Example:** 
+Let's solve the recurrence relation $T(n) = T(\frac{n}{2}) + n$
+
+Let's perform the iterations:
+- $T(n) = T(\frac{n}{2}) + n$
+	- $T(\frac{n}{2}) = T(\frac{n}{4}) + \frac{n}{2}$
+- $T(n) = T(\frac{n}{4}) + n + \frac{n}{2}$
+	- $T(\frac{n}{4}) = T(\frac{n}{8}) + \frac{n}{4}$
+- $T(n) = T(\frac{n}{8}) + n + \frac{n}{2} + \frac{n}{4}$
+
+After $k$ iterations:
+- $T(n) = T(\frac{n}{2^k}) + n(1 + \frac{1}{2} + \frac{1}{4} + ... + \frac{1}{2^{k - 1}})$
+- $T(n) = T(\frac{n}{2^k}) + n(2 - \frac{1}{2^{k - 1}})$
+
+When $\frac{n}{2^k} = 1$, $k = log \space n$
+- $T(n) = T(1) + n \times 2 = O(n \space log \space n)$
+
+
+
+
+
+
+
+
 
 
 A Recurrence Relation in terms of a Recursive algorithm is defined as:
