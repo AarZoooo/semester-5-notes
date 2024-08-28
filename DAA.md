@@ -346,26 +346,126 @@ After $k$ iterations:
 - $T(n) = T(\frac{n}{2^k}) + n(2 - \frac{1}{2^{k - 1}})$
 
 When $\frac{n}{2^k} = 1$, $k = log \space n$
-- $T(n) = T(1) + n \times 2 = O(n \space log \space n)$
+- $T(n) = T(1) + n (2 - \frac{2}{n})$
+- $T(n) = 1 + 2n - 2$
+- $T(n) = O(n)$
 
+So the time complexity of the given recurrence relation is $O(n)$.
 
+### Recursion Tree Method
 
+This is a visual method of finding solutions to recurrence relations. This involves drawing out a tree where each node represents a subproblem, and the edges represent the division of the problem.
 
+**Example:** 
+Let's solve the recurrence relation $T(n) = 2 T(\frac{n}{2}) + n$
 
+Let's draw the recursion tree:
+```mermaid
+graph TD;
+A(0\nCost is n) --> B(1.1\nCost is n/2)
+A --> C(1.2\nCost is n/2)
 
+B --> F(2.1\nCost is n/4)
+B --> G(2.2\nCost is n/4)
 
+C --> D(2.3\nCost is n/4)
+C --> E(2.4\nCost is n/4)
+```
+And so on... until the cost at each node reduces to 1.
 
+So as the tree divides into two equal subparts:
+- Height of the tree = $log \space n$
+- At each level, cost = $k \times \frac{n}{k} = n$
 
-
-A Recurrence Relation in terms of a Recursive algorithm is defined as:
+Therefore, total work across all levels:
 
 $$
-T(n) = D(n) + C(n) + a \times T(\frac{n}{b})
+Total\space Work = n + n + n \space + \space ... \space + \space n \space \text{(for } log \space n \text{ levels)}
+ = n \times log \space n$$
+
+Therefore we can write its time complexity as $O(n \space log \space n)$
+
+### Master Theorem
+
+A powerful tool for solving recurrence relations that appear in the Divide-and-Conquer algorithms. This is applicable on relations of the following form:
+
+$$
+T(n) = a \space T(\frac{n}{b}) + f(n)
 $$
 
 where:
-- $D(n)$ is the time complexity to divide the search space
-- $C(n)$ is the time complexity to combine the search spaces
-- $a$ is the number of parts in which the search space is divided
-- $b$ provides how much each part is, after division.
+- $n$ is the size of input
+- $a \geq 1$  is number of subproblems
+- $\frac{n}{b}$ is the size of each subproblem
+- $f(n)$ is the cost of work done outside the recursion, i.e. dividing and joining
+
+#### Steps
+1. Identify $a$, $b$ and $f(n)$ from the relation
+2. Find $h(n)$, where:
+	
+$$h(n)= \frac{f(n)}{n^{log _b a}}$$
+	
+3. Compare $h(n)$ with these cases:
+
+| $h(n)$                         | $U(n)$                             |
+| ------------------------------ | ---------------------------------- |
+| $n^r$, $r > 0$                 | $O(n^r)$                           |
+| $n^r$, $r < 0$                 | $O(1)$                             |
+| $(log \space n)^i$, $i \geq 0$ | $\frac{(log _2 n)^{i + 1}}{i + 1}$ |
+
+4. Put value of $U(n)$ into answer equation:
+
+$$
+T(n) = n^{log _b a} \times U(n)
+$$
+
+**Example 1:** 
+Let's solve $T(n) = 8 \space T(\frac{n}{2}) + n^2$
+
+So here we have:
+- $a = 8$
+- $b = 2$
+- $f(n) = n^2$
+
+So: 
+
+$$h(n) = \frac{n^2}{n^{log _2 8}} = \frac{n^2}{n^3} = \frac{1}{n} = n^{-1}$$
+
+Now we can see $h(n)$'s value matches with the second case of our table, i.e. $n^r$, $r < 0$. So we get $U(n) = O(1)$
+
+Now putting $U(n)$ into final answer:
+
+$$T(n) = n^{log _2 8} \times U(n)$$
+
+$$T(n) = n^3 \times 1 = n^3$$
+
+So our answer is $T(n) = O(n^3)$
+
+**Example 2:** 
+Let's solve $T(n) = T(\frac{n}{2}) + c$
+
+So we have:
+- $a = 1$
+- $b = 2$
+- $f(n) = c$ (a constant)
+
+Let's calculate $h(n)$:
+
+$$h(n) = \frac{c}{n^{log _2 1}} = \frac{c}{n^0} = c$$
+
+Now this doesn't fall in any cases we have. So we have to fit it into the third:
+
+$$c = (log \space n)^0 \times c$$
+
+Now it falls under the third case with $i = 0$
+
+So we have:
+
+$$U(n) = \frac{(log \space n)^1}{1} = log \space n$$
+
+So our final answer is:
+
+$$T(n) = n^{log _2 1} \times log \space n = log \space n$$
+
+So the time complexity is $O(log \space n)$.
 
