@@ -469,3 +469,139 @@ $$T(n) = n^{log _2 1} \times log \space n = log \space n$$
 
 So the time complexity is $O(log \space n)$.
 
+# Arrays
+
+A linear representation of multiple values accessed through a single address. Each value has an index. Usually indices start from 0.
+
+## Operations
+
+1. Insertion
+2. Deletion
+3. Update
+4. Search
+5. Traversal
+
+Let's see how we can do each of these.
+
+### Insertion
+
+Let's say we have an array `ARR` with length `N` and maximum length `MAX`.
+
+We can insert an element by three different ways:
+
+1. Insert at beginning
+```
+BEGIN
+
+IF N == MAX
+	RETURN
+ELSE
+	N = N + 1
+	
+	FOR i FROM 0 TO N - 2
+		ARR[i + 1] = ARR[i]
+
+	ARR[0] = NEW_ELEMENT
+
+END
+```
+
+2. Insert at end
+```
+BEGIN
+
+IF N == MAX
+	RETURN
+ELSE
+	ARR[N] = NEW_ELEMENT
+	N = N + 1
+
+END
+```
+
+3. Insert at specific index (Let's say index = `J`)
+```
+BEGIN
+
+IF N == MAX
+	RETURN
+ELSE
+	FOR i FROM J TO N - 2
+		ARR[J + 1] = ARR[J]
+	
+	ARR[J] = NEW_ELEMENT
+	N = N + 1
+
+END
+```
+
+### Deletion
+
+We can delete elements in the same three ways as we have seen inserting an element. Deleting from beginning and end is very simple, so we are just going to see the algorithm for deleting from an index, say `J`.
+
+```
+BEGIN
+
+IF N == 0
+	RETURN
+ELSE
+	WHILE J < N - 1
+		ARR[J] = ARR[J + 1]
+		J = J + 1
+	
+	N = N - 1
+
+END
+```
+
+
+### Search
+
+Let's say we are searching for a number `X`.
+
+```
+BEGIN
+
+J = 0
+WHILE J < N
+	IF ARR[J] == X
+		RETURN TRUE
+	J = J + 1
+
+RETURN FALSE
+
+END
+```
+
+### Update
+
+Similar to Searching; if found we just update the value with the new value.
+
+If index is given, then no need of searching, we can just directly change the value in constant time.
+
+### Traversal
+
+```
+BEGIN
+
+J = 0
+WHILE J < N
+	PRINT(ARR[J])
+	J = J + 1
+
+END
+```
+
+This is just a simple loop, printing each element it encounters.
+
+## Advantages
+
+1. Random access of elements using array index.
+2. Easy access to all the elements.
+3. Sorting becomes easy as it can be accomplished by writing less line of code.
+
+## Disadvantages
+
+1. Allows a fixed number of elements to be entered which is decided at the time of declaration.
+2. Insertion and deletion of elements can be costly since the elements are needed to be managed in accordance with the new memory allocation.
+
