@@ -142,3 +142,61 @@ This model is applicable in projects where:
 ## Prototype Model
 
 <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.geeksforgeeks.org%2Fwp-content%2Fuploads%2F20200508170244%2F11147.png&f=1&nofb=1&ipt=9a286b0ca7077b307a6519520fc4523cf2efda30c440c2e36f6872c5ebd25e79&ipo=images" style="background:#d8dee9">
+
+Prototype Model's main principle is instead of freezing the requirements before the development, a mock prototype is build while understanding the requirements. This stage is repeated, gathering information, refining requirements and the prototype, so that after some iterations the team gets the requirements they need to start development.
+
+A prototype is an imitation of the final product that gives similar feel of it, and helps understand what the outcome's gonna be.
+
+### Advantages
+
+- Users are actively involved in the development
+- Since in this methodology a working model of the system is provided, the users get a better understanding of the system being developed.
+- Errors can be detected much earlier.
+- Quicker user feedback is available leading to better solutions.
+- Missing functionality can be identified easily
+
+### Disadvantages
+
+- Leads to implementing and then repairing way of building systems. 
+- Practically, this methodology may increase the complexity of the system as scope of the system may expand beyond original plans.
+- Incomplete application may cause application not to be used as the full system was designed incomplete, or inadequate problem analysis was done.
+
+### Applications
+
+Prototype model should be used when the desired system needs to have a lot of interaction with the end users, e.g. Online Systems.
+
+## Spiral Model
+
+<img src = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdzone.com%2Fstorage%2Ftemp%2F14143955-spiral-model.png&f=1&nofb=1&ipt=3c715219908462977fcd45885ce969031f9d3c842c345d8de3f7769144091163&ipo=images" height = 400>
+
+This model combines the idea of iterative development with the systematic and controlled aspects of Waterfall model. As you can see in the diagram, this model leads to incremental releases of the product as well as incremental refinement through each iteration around the spiral.
+
+Spiral model has four phases:
+- **Identification**: Determining the objective and gathering the requirements
+- **Design**: Includes architectural, logical, physical designs and the final design.
+- **Development**: Actual development of the software based on the information from previous steps.
+- **Evaluation**: Identifying, estimating and monitoring the developed product. Customer feedback is essential, and every bit of information is used in the next iteration.
+
+### Advantages
+
+- Allows elements to be added into the software anytime
+- Allows extensive use of prototypes
+- Consistent method, allowing multiple builds and releases, leading to an orderly transition to maintenance activity
+- Forces early user involvement, with feedback and user-centric design
+
+### Disadvantages
+
+- Requires very strict management
+- Risk of running the spiral for infinite loop
+- Complex process
+- Requires extensive documentation
+
+### Applications
+
+Spiral model can be applied:
+- When there is a budget constraint
+- For medium to high risk projects
+- For long-term commitment projects because of potential changes
+- When customers are not sure of their requirements
+- When requirements are complex and need evaluation
+
