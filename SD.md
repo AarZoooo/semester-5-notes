@@ -200,3 +200,88 @@ Spiral model can be applied:
 - When customers are not sure of their requirements
 - When requirements are complex and need evaluation
 
+## Agile Software Development
+
+A time-bound, iterative approach to software development, that builds software incrementally instead of all at once, just like the Spiral model.
+
+<img src = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fassets.asana.biz%2Fm%2F43ef9089d64fdcb0%2Foriginal%2Finline-agile-agile-methodology-1-2x.jpg&f=1&nofb=1&ipt=0b2127281c50e071f60702934108e1e50c886f456d47a92547ede5b1addc743a&ipo=images" height = 400>
+
+**Characteristics**:
+- Satisfying customer needs is HIGHEST priority, and performed through early and continuous delivery of software
+- Welcomes changing requirements at any point of time in the development
+- Frequently delivers software
+- Lets the motivated individuals build projects by providing them with the environment and support they need
+
+**Development Process**:
+- Design and Implementation are central activities. They also include Requirements elicitation and testing
+- Iteration occurs across activities, thus the requirements and the design are evaluated simultaneously
+- Allocation of requirements, Design planning, and Development; these are executed in a series of increments. Hence the flexibility of the Agile development.
+- Focus on Development is more than documentation.
+
+### Advantages
+
+- Software is deployed faster, hence increasing trust of customer
+- Adapts to changing requirements faster
+- Gets immediate feedback from user, which is rapidly used in software improvement
+- People and Interactions are high priority than processes and tools
+
+### Disadvantages
+
+- Difficult to assess the effort required at early stages
+- More development-focused, thus produces less documentation
+- Heavily depends on customer input. So if customer has ambiguity in his vision, this can put the project off track
+- In large scale projects, face to face interactions can be hard
+- New programmers find it difficult to adapt to the environment
+
+## V Model
+
+This is a model different than the others, where process executes in a sequential manner in a V-shape, as you can see in the diagram. It is also known as *Verification and Validation model*. It associates a testing phase to each development phase, and makes it such that next phase can only be started if the testing of previous phase is completed.
+
+<img src = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fblog.devart.com%2Fwp-content%2Fuploads%2F2021%2F10%2Fv-shaped-1024x838.jpg&f=1&nofb=1&ipt=fd93e828cbadbbb2aac37bf51be34084880cc8846acfef42b216088213208a8c&ipo=images" height = 500>
+
+The V Model has Design and Implementation phases on one side, and Validation and Verification phases on the other, connected in a V-shape. Hence the name.
+
+### Design Phases
+
+- **Requirements Analysis**: Detailed communication with customer to gather requirements
+- **System Specification and Design**: System design; Complete hardware and communication step
+- **Architectural Design**: Communication between internal modules and with other systems
+- **Module Design**: Detailed design of internal modules; Low Level Design (LLD).
+
+### Testing Phases
+
+- **Unit Testing**: Developed during Module design. Executed to eliminate bugs at unit level
+- **Integration Testing**: Developed during Architecture design. Executed to check integration between modules
+- **System Testing**: Developed during System design. Executed to check the complete application.
+- **User Acceptance Testing (UAT)**: Executed to check if software meets user requirements.
+
+### Principles
+
+- Hierarchical perspective
+- Cohesion of Data and Processes
+- Scalability
+- Cross-Referencing between Design and Testing
+- Documentation
+
+### Advantages
+
+- Disciplined, Rigid model; phases are completed one at a time
+- Extensive defect-checking; Bugs and defects are easily found, at early stages
+- Simple and easy to understand
+- Error-free and good quality output
+- Accurate progress tracking
+
+### Disadvantages
+
+- High risk and uncertainty
+- Not good for complex and Object-oriented projects
+- Not for projects where requirements are not clear, or can change
+- No iteration of phases
+
+### Applications
+
+V Model can be used where:
+- Requirements are well defined, and are not subject to change
+- Ample technical resources are available with expertise in them
+- Projects are small
+
