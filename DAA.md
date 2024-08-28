@@ -485,7 +485,7 @@ Let's see how we can do each of these.
 
 ### Insertion
 
-Let's say we have an array `ARR` with length `N` and maximum length `MAX`.
+Let's say we have an array `ARR` with current length `N` (1-indexed) and maximum length `MAX` (1-indexed).
 
 We can insert an element by three different ways:
 
@@ -498,9 +498,9 @@ IF N == MAX
 ELSE
 	N = N + 1
 	
-	FOR i FROM 0 TO N - 2
-		ARR[i + 1] = ARR[i]
-
+	FOR i FROM N TO 1
+		ARR[i] = ARR[i - 1]
+	
 	ARR[0] = NEW_ELEMENT
 
 END
@@ -526,8 +526,8 @@ BEGIN
 IF N == MAX
 	RETURN
 ELSE
-	FOR i FROM J TO N - 2
-		ARR[J + 1] = ARR[J]
+	FOR i FROM N TO J + 1
+		ARR[i] = ARR[i - 1]
 	
 	ARR[J] = NEW_ELEMENT
 	N = N + 1
@@ -604,4 +604,273 @@ This is just a simple loop, printing each element it encounters.
 
 1. Allows a fixed number of elements to be entered which is decided at the time of declaration.
 2. Insertion and deletion of elements can be costly since the elements are needed to be managed in accordance with the new memory allocation.
+
+# Linked Lists
+
+A linear data structure, just like arrays. Everything is same, except the memory allocation part. In arrays we mention its max capacity at definition, thus the memory is allocated together in a continuous manner. In case of Linked lists, we allocate memory separately for each element, and for every element we store the address of the next element. Thus we don't need max capacity.
+
+Linked lists are represented visually like this (Singly Linked List, more on that later):
+```mermaid
+graph LR
+    
+    subgraph Node1
+    A_Value["Value: 10"]
+    A_Address["Address: B"]
+    end
+    
+    subgraph Node2
+    B_Value["Value: 20"]
+    B_Address["Address: C"]
+    end
+    
+    subgraph Node3
+    C_Value["Value: 30"]
+    C_Address["Address: D"]
+    end
+    
+    subgraph Node4
+    D_Value["Value: 40"]
+    D_Address["Address: Null"]
+    end
+	
+    A_Address --> Node2
+	
+    B_Address --> Node3
+	
+    C_Address --> Node4
+	
+    D_Address --> Null["Null"]
+	
+```
+
+## Types
+
+1. **Singly Linked List**: Elements have address of the next element
+2. **Doubly Linked List**: Elements have addresses of the next as well as previous elements
+3. **Circular Linked List**: End elements store addresses of the elements at other end as their next elements.
+
+## Operations
+
+Let's say we have a linked list named `LL` with current node count `N` and maximum node limit `MAX`.
+
+### Insertion
+
+```
+BEGIN
+
+IF N == MAX
+	RETURN
+ELSE
+	NODE i = LL.head
+	
+	WHILE i.next IS NOT NULL
+		i = i.next
+	
+	i.next = NEW NODE(NEW VALUE)
+	N = N + 1
+
+END
+```
+
+### Deletion
+
+```
+BEGIN
+
+IF N == 0
+	RETURN
+ELSE
+	IF LL.head.next IS NULL
+		LL.head.next = null
+		RETURN
+	
+	NODE i = LL.head
+	
+	WHILE i.next.next IS NOT NULL
+		i = i.next
+	
+	i.next = NULL
+	N = N - 1
+
+END
+```
+
+There are other operations (Reversal) and these same operations for other two Linked Lists (doubly linked and circular), but I am too lazy to write all of it. Please read it elsewhere. 
+
+# Stack
+
+A linear data structure which follows the **LIFO** structure (**L**ast **I**n **F**irst **O**ut). Just like real-life stacks. we can only do operations on the topmost element, and don't have access to what's underneath.
+
+## Operations
+
+We can perform most of the operations we did with Arrays here with stacks.
+
+### Insertion- push()
+
+We can insert an element on top of stack.
+
+```
+BEGIN
+
+IF N == MAX
+	RETURN
+ELSE
+	ARR[N] = NEW_ELEMENT
+	N = N + 1
+
+END
+```
+
+### Deletion- pop()
+
+We can remove the topmost element from stack.
+
+```
+BEGIN
+
+IF N == 0
+	RETURN
+ELSE
+	N = N - 1
+
+END
+```
+
+We can just reduce the current size, so when we insert any element it will just *override* the previous value.
+
+### peek()
+
+This is a new one, where we can only look what the topmost element is.
+
+```
+BEGIN
+
+RETURN ARR[N - 1]
+
+END
+```
+
+Now we have two utility functions for stack:
+
+### isFull()
+
+This just returns whether the stack is at max capacity or not.
+
+```
+BEGIN
+
+RETURN N == MAX
+
+END
+```
+
+### isEmpty()
+
+This is the opposite of `isFull()`, it returns whether the stack is empty or not.
+
+```
+BEGIN
+
+RETURN N == 0
+
+END
+```
+
+# Queue
+
+A linear data structure which follows the **FIFO** structure (**F**irst **I**n **F**irst **O**ut). Just like real-life queues, we can only insert values from one end and remove them from the other.
+
+## Operations
+
+We can perform all of the operations we did with Stacks here with Queues. For the examples, let's assume we have an array `ARR[]`, trailing index `TAIL` and maximum length `MAX`.
+
+### Insertion- enqueue()
+
+We can insert an element into the Queue.
+
+```
+BEGIN
+
+IF N == MAX
+	RETURN
+ELSE
+	J = N
+	
+	WHILE J > 0
+		ARR[J] = ARR[J - 1]
+	
+	ARR[0] = NEW_ELEMENT
+	N = N + 1
+
+END
+```
+
+### Deletion- dequeue()
+
+We can remove the element on the other end of the Queue. In this case, the last index.
+
+```
+BEGIN
+
+IF N == 0
+	RETURN
+ELSE
+	N = N - 1
+
+END
+```
+
+We can just reduce the current size, so when we insert any element, the current last element will just *override* this index.
+
+### peek()
+
+We can also check the element at the front of the queue.
+
+```
+BEGIN
+
+RETURN ARR[N - 1]
+
+END
+```
+
+Now we have two utility functions for stack:
+
+### isFull()
+
+This just returns whether the queue is at max capacity or not.
+
+```
+BEGIN
+
+RETURN N == MAX
+
+END
+```
+
+### isEmpty()
+
+This is the opposite of `isFull()`, it returns whether the queue is empty or not.
+
+```
+BEGIN
+
+RETURN N == 0
+
+END
+```
+
+### Traversal
+
+This is the one we couldn't do with stacks. Now we have access to all elements in an array.
+
+```
+BEGIN
+
+J = 0
+WHILE J < N
+	PRINT(ARR[J])
+
+END
+```
 
