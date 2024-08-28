@@ -874,3 +874,4 @@ WHILE J < N
 END
 ```
 
+### Okay the syllabus is huge, I can't cover it today. Please read elsewhere.
