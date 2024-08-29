@@ -79,14 +79,14 @@ Here:
 - `SUM` takes *4 bytes*
 - `i` takes *4 bytes*
 - `n` takes *4 bytes*
-- `A[]` takes *n bytes*
+- `A[]` takes *4n bytes*
 
 Therefore:
 - $C = S(12) = 1$
 - $S(I) = n$
 
 $$
-S(P) = 1 + n \approx n
+S(P) = 1 + 4n \approx n
 $$
 
 As 1 is significantly smaller than n, we ignore it in complexities.
@@ -133,11 +133,11 @@ Asymptotic analysis depends on the input of the algorithm. If there is no input,
 
 Now the cases in which an algorithm's performance falls under are **Best Case**, **Average Case** and **Worst Case**, and are denoted by the following notations:
 
-| Case    | Notation |
-| ------- | -------- |
-| Best    | $\Theta$ |
-| Average | $\Omega$ |
-| Worst   | O        |
+|  Case   | Notation |
+| :-----: | :------: |
+|  Best   | $\Omega$ |
+| Average | $\Theta$ |
+|  Worst  |    O     |
 
 ### Big Oh Notation: O
 
@@ -287,70 +287,7 @@ There are four methods of solving Recurrence Relations:
 - Recursion Tree Method
 - Master Method
 
-Let's look into each of them.
-
-### Substitution Method
-
-This is a straightforward method of solving recurrences.
-
-- Guess the solution
-- Use mathematical Induction to show the guess is correct.
-
-**Example:** 
-Let's solve the recurrence relation $T(n) = T(n - 1) + n$, $n > 1$
-
-So, we have $T(n) = 1$ when $n = 1$.
-
-So for the next terms:
-- $T(1) = 1$
-- $T(2) = T(1) + 2 = 1 + 2 = 3$
-- $T(3) = T(2) + 3 = T(1) + 2 + 3 = 1 + 2 + 3 = 6$
-- $T(4) = 1 + 2 + 3 + 4 = 10$
-
-So the pattern is the sum of n natural numbers: $\frac{(n \times (n + 1))}{2}$. Hence the time complexity is $O(n^2)$.
-
-Now let's prove the guess is correct using Mathematical Induction:
-
-- For $T(1)$: $\frac{1 \times (1 + 1)}{2} = 1$; which matches the definition of recurrence $T(1) = 1$
-
-- Let's assume $T(N - 1)$ is true.
-  Then $T(N - 1) = \frac{((N - 1) \times (N - 1 + 1))}{2}$ is true.
-  => $T(N - 1) = \frac{N \times (N - 1)}{2}$
-
-- Then for $T(N):$
-  $T(N) = T(N - 1) + N$
-  $T(N) = \frac{N \times (N - 1)}{2} + N$
-  $T(N) = \frac{N^2 - N + 2N}{2}$
-  $T(N) = \frac{N \times (N + 1)}{2}$
-
-  And according to our guess: $T(N) = \frac{N \times (N + 1)}{2}$
-
-Therefore we can conclude that our guess was correct, and we proved it using Mathematical Induction.
-
-### Iterative Method
-
-This method unfolds the recurrence relation step-by-step.
-
-**Example:** 
-Let's solve the recurrence relation $T(n) = T(\frac{n}{2}) + n$
-
-Let's perform the iterations:
-- $T(n) = T(\frac{n}{2}) + n$
-	- $T(\frac{n}{2}) = T(\frac{n}{4}) + \frac{n}{2}$
-- $T(n) = T(\frac{n}{4}) + n + \frac{n}{2}$
-	- $T(\frac{n}{4}) = T(\frac{n}{8}) + \frac{n}{4}$
-- $T(n) = T(\frac{n}{8}) + n + \frac{n}{2} + \frac{n}{4}$
-
-After $k$ iterations:
-- $T(n) = T(\frac{n}{2^k}) + n(1 + \frac{1}{2} + \frac{1}{4} + ... + \frac{1}{2^{k - 1}})$
-- $T(n) = T(\frac{n}{2^k}) + n(2 - \frac{1}{2^{k - 1}})$
-
-When $\frac{n}{2^k} = 1$, $k = log \space n$
-- $T(n) = T(1) + n (2 - \frac{2}{n})$
-- $T(n) = 1 + 2n - 2$
-- $T(n) = O(n)$
-
-So the time complexity of the given recurrence relation is $O(n)$.
+We have Recursion Tree method and Master method in our syllabus. Let's look into each of them.
 
 ### Recursion Tree Method
 
@@ -402,9 +339,9 @@ where:
 #### Steps
 1. Identify $a$, $b$ and $f(n)$ from the relation
 2. Find $h(n)$, where:
-	
+
 $$h(n)= \frac{f(n)}{n^{log _b a}}$$
-	
+
 3. Compare $h(n)$ with these cases:
 
 | $h(n)$                         | $U(n)$                             |
