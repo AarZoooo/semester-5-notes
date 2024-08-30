@@ -322,7 +322,7 @@ This is a significant and essential step, where we analyse and refine the gather
 Steps of Requirement Analysis include:
 1. **Draw Context Diagram**: A simple model that defines the boundaries and interfaces of the system with the external world.
 
-    Example: ATM system
+Example: ATM system
 <img src = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvenngage-wordpress.s3.amazonaws.com%2Fuploads%2F2022%2F04%2Fcontext-diagram-atm-system.png&f=1&nofb=1&ipt=32e7b277ebfb076742d8b98ab828b0e15ad90d03d561603c8b9b398edcf32819&ipo=images" height = 500>
 
 2. **Development of Prototype** (Optional): With use of the information gathered from context diagram and requirements, a Prototype can be made to imitate the final product for the clients to get a feel of it and provide further feedback. This helps in increasing the understanding of the requirements.
@@ -559,4 +559,14 @@ Example:
 <img src = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.IquMz-c-8nEZO1sJ2kNv-wHaIi%26pid%3DApi&f=1&ipt=9bd1f2fdc06978bcb65e60e5cf37f13c3ef182c8ced7b4207018071c1e7264ec&ipo=images" height = 500>
 
 ### Activity Diagram
+
+<img src = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.visual-paradigm.com%2Fguide%2Fuml%2Fwhat-is-activity-diagram%2F04-activity-diagram-example-process-order.png&f=1&nofb=1&ipt=0e38a7584457797f4f13786a8dc5b959e056a1386d567a2b7cf0f60257a9dd8b&ipo=images" height = 500>
+
+### Sequence Diagram
+
+<img src = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F0a%2F92%2F8e%2F0a928eb0a80bc6af7e8d232468054b65.png&f=1&nofb=1&ipt=fac24ea42ab8c4ced6b385ebb765440195f720569e5a4472c2296ac8632c022b&ipo=images" height = 500>
+
+### State Chart Diagram
+
+<img src = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Faxiom-northwest.com%2Fimg%2Fstate_diagram_scheduling_system-740x860_3.jpg&f=1&nofb=1&ipt=7fa22cd08cd099328f95dbfebc1d51499cfb5546301f6dd1a4f6659bb36fa71c&ipo=images" height = 500>
 
