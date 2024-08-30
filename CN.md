@@ -1,8 +1,32 @@
-**Assignment 1**
+# Introduction
 
-1. Implement the Ring Topology on Cisco Packet Tracer
-2. Explain the difference between myquist limit and shanon formula.
-3. Implement the WAN on Cisco Packet Tracer.
-4. Give IP Address to the router and ping it from the desktop computer on Cisco Packet Tracer
-5. Difference between IP address and MAC address.
+# Terminology
+
+# Reference Models
+
+## OSI Model
+
+## TCP/IP Model
+
+# Topologies
+
+# Transmission
+
+## Terminology
+
+## Modulation
+
+## Transmission Medium
+
+# Network Devices
+
+# Wireless
+
+# Switching
+
+## Message Switching
+
+## Circuit Switching
+
+## Packet Switching
 
